@@ -10,15 +10,12 @@
       </ul>
     </div>
   <% end %>
-
+  <%= @a= current_user.id %>
   <div class="field">
     <%= f.label :username %><br>
     <%= f.text_field :username %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
+    <%= f.user_id =@a %>
   <div class="actions">
     <%= f.submit %>
   </div>

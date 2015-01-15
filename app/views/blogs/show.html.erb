@@ -4,11 +4,11 @@
   <strong>Username:</strong>
   <%= @blog.username %>
 </p>
-
 <p>
   <strong>User:</strong>
-  <%= @blog.user %>
+  <%= @blog.user.username %>
 </p>
 
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
 <%= link_to 'Back', blogs_path %>
+<%= link_to 'Log out', {:controller => 'blogs', :action => 'index' } %>
