@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
+  resources :profiles
+
+  resources :tags
+
+  resources :posts
+
+  resources :blogs
+
   devise_for :users, controllers: { sessions: "users/sessions" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
@@ -54,4 +61,9 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  devise_scope :user do
+    get "sign_in", to: "blogs/blogs#index"
+    # get "sign_up", to: "devise/sessions#new"
+
+  end
 end
