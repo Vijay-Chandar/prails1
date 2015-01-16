@@ -1,46 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Posts</h1>
+<h1>Listing Posts </h1>
 
 <table>
   <thead>
     <tr>
-      <th>Head</th>
-      <th>Contents</th>
-      <th>User</th>
-      <th>Blogs</th>
+      <th>Header</th>
+      <th>Content</th>
+      <th>User Name</th>
+      <th>Blog Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @posts.each do |post| %>
-    <% if post.blogs_id == post.blog %>
       <tr>
-        <td><%= post.head %></td>
-        <td><%= post.contents %></td>
-        <td><%= post.user_id %></td>
-        <td><%= post.blogs_id %></td>
-        <% if current_user.id==post.user.id %>
-        <td><%= link_to 'Show', post %></td>
+      <% if current_user.id == post.user_id %>
+        <td><%= post.header %></td>
+        <td><%= post.content %></td>
+        <td><%= post.user.username %></td>
+        <td><%= post.blog.username %></td>
+       <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%end%>
+      <% end %>
       </tr>
-     <% end %> 
     <% end %>
   </tbody>
 </table>
+
+<br>
 <% if user_signed_in? %>
-<li>
+  <li>
   <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
- </li>
+  </li>
 <% else %>
   <li>
   <%= link_to('Login', new_user_session_path)  %>  
   </li>
 <% end %>
 
-<br>
-
-  <%= link_to 'New Post', new_post_path %>
+<%= link_to 'New Post', new_post_path %>

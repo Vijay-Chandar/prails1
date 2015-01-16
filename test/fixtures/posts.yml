@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  head: MyString
-  contents: MyString
+  header: MyString
+  content: MyString
   user_id: 
-  blogs_id: 
+  blog_id: 
 
 two:
-  head: MyString
-  contents: MyString
+  header: MyString
+  content: MyString
   user_id: 
-  blogs_id: 
+  blog_id: 

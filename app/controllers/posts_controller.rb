@@ -1,8 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-    before_action :authenticate_user!
-
-
+  before_action :authenticate_user!
   respond_to :html
 
   def index
@@ -44,6 +42,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:head, :contents, :user_id, :blogs_id)
+      params.require(:post).permit(:header, :content, :user_id, :blog_id)
     end
 end
