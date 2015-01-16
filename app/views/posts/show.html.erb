@@ -1,24 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Header:</strong>
-  <%= @post.header %>
+  <strong><%= @post.header %></strong>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>Content:</strong><br>
+  
   <%= @post.content %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @post.user %>
+  <strong>Posted by:</strong> 
+  <%= @post.user.username %>
 </p>
 
 <p>
-  <strong>Blog:</strong>
-  <%= @post.blog %>
+  <strong>Belongs to:</strong>
+  <%= @post.blog.username %>
 </p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<% if current_user.id == @post.user_id %>
+	<%= link_to 'Edit', edit_post_path(@post) %> |
+<%end%>	 
 <%= link_to 'Back', posts_path %>

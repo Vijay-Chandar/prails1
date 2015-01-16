@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Blogs</h1>
-<h2> One User can have only one Blog </h2>
 
 <table>
   <thead>
@@ -28,6 +27,7 @@
     <% end %>
   </tbody>
 </table>
+My User ID: <%= current_user.id %>
 <% if user_signed_in? %>
   <li>
   <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
@@ -37,5 +37,6 @@
   <%= link_to('Login', new_user_session_path)  %>  
   </li>
 <% end %>
-
+<%= link_to 'View my Profile', profiles_path %> 
+<%= link_to 'View all Posts', posts_path %>
 <%= link_to 'New Blog', new_blog_path %>
