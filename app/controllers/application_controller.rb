@@ -6,8 +6,19 @@ class ApplicationController < ActionController::Base
    	# end
 
   protected
+  def after_sign_in_path_for(resource)
+    blogs_path
+  end
+  def after_sign_up_path_for(resource)
+    blogs_path
+  end
+  def after_sign_out_path_for(resource)
+   new_user_session_path 
+  end
 
-
+  # def after_sign_out_path_for(resource_or_scope)
+    # Rails.root.join('sessions','create') 
+    # Rails.root  
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me) }
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }

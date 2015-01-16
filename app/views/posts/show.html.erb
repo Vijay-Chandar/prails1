@@ -19,6 +19,14 @@
   <strong>Blogs:</strong>
   <%= @post.blogs %>
 </p>
+<li>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+ </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>  
+  </li>
+<% end %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Username</th>
-      <th>User</th>
+      <th>Blog</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,14 +16,23 @@
       <tr>
         <td><%= blog.username %></td>
         <td><%= blog.user.username %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><a href="/posts">Go to Blog</a></td>
+        <% if current_user.id==blog.user.id %>
+          <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+          <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %> 
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>  
+  </li>
+<% end %>
 
 <%= link_to 'New Blog', new_blog_path %>
