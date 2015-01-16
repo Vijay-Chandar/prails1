@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
   belongs_to :user
-  belongs_to :blogs
+  belongs_to :blog
   has_many :tags
 end

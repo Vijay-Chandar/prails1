@@ -12,13 +12,14 @@
 
 <p>
   <strong>User:</strong>
-  <%= @post.user %>
+  <%= @post.user_id %>
 </p>
 
 <p>
   <strong>Blogs:</strong>
-  <%= @post.blogs %>
+  <%= @post.blogs_id %>
 </p>
+<% if user_signed_in? %>
 <li>
   <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
  </li>
